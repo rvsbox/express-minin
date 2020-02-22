@@ -31,8 +31,6 @@ app.use('/card', cardRoutes)
 
 const PORT = process.env.PORT || 3000
 
-
-
 async function start() {
   try {
     // const url = `mongodb://root:mogaba@127.0.0.1:27017/test?authSource=admin`
