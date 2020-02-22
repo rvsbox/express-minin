@@ -1,5 +1,7 @@
 const express = require('express')
 const path = require('path')
+const configDB = require('./configs/configDB')
+const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const homeRoutes = require('./routes/home')
 const cardRoutes = require('./routes/card')
@@ -25,8 +27,26 @@ app.use('/add', addRoutes)
 app.use('/courses', coursesRoutes)
 app.use('/card', cardRoutes)
 
+
+
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
-})
+
+
+async function start() {
+  try {
+    // const url = `mongodb://root:mogaba@127.0.0.1:27017/test?authSource=admin`
+    // await mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
+    await mongoose.connect(configDB.dbURI, configDB.dbOptions)
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`)
+    })
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+start()
+
+
+
