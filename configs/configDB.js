@@ -5,6 +5,7 @@ module.exports = {
     pass: 'mogaba',
     authSource: 'admin',
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
   }
 };
