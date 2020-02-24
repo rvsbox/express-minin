@@ -7,5 +7,6 @@ module.exports = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
-  }
+  },
+  dbAll: 'mongodb://root:mogaba@127.0.0.1:27017/express_minin?authSource=admin'
 };
